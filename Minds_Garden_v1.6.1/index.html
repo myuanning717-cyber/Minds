@@ -1,97 +1,10 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html>
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <meta name="theme-color" content="#17221b" />
-  <meta name="description" content="Minds — an interactive 3D garden of food, music and philosophy." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
-  <title>Minds — Living Garden 1.6.1</title>
-  <meta property="og:title" content="Minds — A little room to become." />
-  <meta property="og:description" content="A living garden of food, music and philosophy. Plant a thought, play a melody, and revisit the flowers you grow." />
-  <meta property="og:type" content="website" /><meta property="og:image" content="./brand/cover-1200x630.jpg" /><meta property="og:image:width" content="1200" /><meta property="og:image:height" content="630" />
-  <meta name="twitter:card" content="summary_large_image" /><meta name="apple-mobile-web-app-capable" content="yes" /><meta name="apple-mobile-web-app-title" content="Minds" />
-  <link rel="icon" type="image/png" sizes="32x32" href="/brand/favicon-32.png" />
-  <link rel="apple-touch-icon" sizes="180x180" href="/brand/app-icon-180.png" />
-  <link rel="manifest" href="/manifest.webmanifest" />
-  <link rel="stylesheet" href="./src/style.css" />
+<meta charset="utf-8">
+<title>Minds Garden</title>
+<script>
+window.location.href = "./Minds_Garden_v1.6.1_Open.html";
+</script>
 </head>
-<body>
-  <dialog id="garden-cover" aria-label="Welcome to Minds"><img src="/brand/cover-1200x630.jpg" width="1200" height="630" alt="Minds garden in morning light, with a flowering kapok, tea pavilion, glasshouse and music hall"><footer><span>Food · Music · Philosophy</span><button autofocus id="enter-garden">Enter the garden →</button></footer></dialog>
-  <div id="app">
-    <canvas id="world" aria-label="Interactive three-dimensional kapok tree garden"></canvas>
-    <div id="offline-preview" aria-hidden="true"></div>
-    <div class="vignette"></div>
-    <div class="grain"></div>
-
-    <header class="topbar">
-      <div class="masthead">
-        <a class="brand" href="#" aria-label="Minds home" id="brand-home">
-          <span class="wordmark">Minds</span>
-          <span class="subtitle">Food / Music / Philosophy</span>
-        </a>
-        <nav class="site-navigation" aria-label="Explore Minds">
-          <button type="button" class="nav-link active" id="nav-garden" data-nav="garden" aria-current="page">GARDEN</button>
-          <button type="button" class="nav-link" id="nav-food" data-nav="food">FOOD</button>
-          <button type="button" class="nav-link" id="nav-sound" data-nav="sound">MUSIC</button>
-          <button type="button" class="nav-link" id="nav-heart" data-nav="philosophy" title="Open your thought journal">PHILOSOPHY<span class="nav-secret-dot" aria-hidden="true"></span></button>
-          <button type="button" class="nav-link" id="nav-greenhouse" data-nav="greenhouse">GLASSHOUSE</button>
-          <span class="nav-separator" aria-hidden="true"></span>
-          <button type="button" class="nav-link" id="nav-about" data-nav="info">ABOUT</button>
-        </nav>
-      </div>
-      <div class="toolbar">
-        <button class="icon-button" id="sound-toggle" title="Toggle sound" aria-label="Toggle sound">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H3v6h3l5 4V5Z"/><path d="M15.5 8.5a5 5 0 0 1 0 7M18.5 5a10 10 0 0 1 0 14"/></svg>
-        </button>
-        <span class="toolbar-divider"></span>
-        <button class="icon-button" id="day-toggle" title="Switch day or night" aria-label="Switch day or night">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M4.9 4.9l1.6 1.6m11.6 11.6 1.6 1.6M19.1 4.9l-1.6 1.6M6.3 17.7l-1.6 1.6"/></svg>
-        </button>
-        <span class="toolbar-divider"></span>
-        <button class="icon-button" id="info-toggle" title="How to explore" aria-label="How to explore">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
-        </button>
-      </div>
-    </header>
-
-    <button id="hotspot-philosophy" class="hotspot" aria-label="Enter the Writer’s Cottage"><span class="hotspot-symbol">✎</span><span>The Writer’s Cottage</span></button>
-    <button id="hotspot-sound" class="hotspot" aria-label="Enter the Resonance Room" title="Enter the Resonance Room"><span class="hotspot-symbol">♫</span><span>The Resonance Room</span></button>
-    <button id="hotspot-food" class="hotspot" aria-label="Enter the Tea Pavilion" title="Enter the Tea Pavilion"><span class="hotspot-symbol">✦</span><span>The Tea Pavilion</span></button>
-    <button id="hotspot-heart" class="hotspot hotspot-secret" aria-label="Enter the Hidden Heart" title="Enter the Hidden Heart"><span class="hotspot-symbol">✧</span><span>The Hidden Heart</span></button>
-
-    <div id="table-label" class="table-label" role="status" aria-live="polite">ON THE TABLE · Jasmine Tea</div>
-    <div class="garden-caption"><span>A LITTLE PLACE TO BLOOM</span><h1>A little room to become.</h1><p>A taste. A melody. A thought worth keeping.</p></div>
-    <div class="explore-help"><span class="help-dash"></span><span class="mouse-outline">◉</span><span>Drag to orbit · Scroll to zoom · Click to explore</span><span class="help-dash"></span></div>
-
-    <section id="panel" class="panel" aria-hidden="true" role="dialog" aria-modal="false" aria-labelledby="panel-title">
-      <button class="panel-close" id="panel-close" aria-label="Close dialog">×</button>
-      <div id="panel-inner"></div>
-    </section>
-
-    <section id="toast" class="toast" role="status" aria-live="polite"></section>
-    <div id="scene-transition"></div>
-    <div id="interior-label" class="interior-label" aria-hidden="true"><span class="smallcaps">THE INNER LIBRARY</span><h2>Heart of the Tree</h2><p>Some stories need a quiet place to grow.</p><div id="heart-memory" class="heart-memory" hidden></div><button id="return-garden">← Return to garden</button></div>
-    <button id="return-garden-float" class="return-garden-float" aria-label="Return to garden">← Return to garden</button>
-    <div id="loading"><div class="loading-wordmark">Minds</div><span>Growing the garden...</span></div>
-    <div id="launch-guide" role="alert" hidden>
-      <strong>Start Minds using a local server</strong>
-      <span>Open this folder in VS Code and run <code>npm.cmd install</code>, then <code>npm.cmd run dev</code>. Do not open index.html directly.</span>
-    </div>
-    <script>
-      // HTML-level fallback: interface must never be hidden by a frozen 3D loader.
-      window.addEventListener('DOMContentLoaded', function(){
-        setTimeout(function(){ var l=document.getElementById('loading'); if(l)l.classList.add('done'); }, 1300);
-        if(location.protocol==='file:'){
-          document.body.classList.add('file-preview');
-          document.getElementById('offline-preview').style.backgroundImage='url(\"public/offline-preview.webp\")';
-          var guide=document.getElementById('launch-guide'); if(guide)guide.hidden=false;
-        }
-      });
-    </script>
-  </div>
-  <script type="module" src="/src/main.js"></script>
-</body>
 </html>
