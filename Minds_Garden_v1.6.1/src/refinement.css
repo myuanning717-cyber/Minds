@@ -1,0 +1,71 @@
+/* Garden edition: quiet ivory stationery over a living, full-screen landscape. */
+:root {font-family:"DM Sans","Microsoft YaHei",sans-serif}
+#app {overflow:clip}
+.vignette {background:linear-gradient(0deg,rgba(26,42,33,.53),transparent 27%),linear-gradient(180deg,rgba(35,57,48,.22),transparent 25%)}
+.grain {opacity:.023}
+.topbar {top:30px;left:40px;right:40px;align-items:center}
+.masthead {flex-direction:row;align-items:center;gap:58px;max-width:calc(100% - 160px);width:auto}
+.wordmark {font-size:62px}
+.subtitle {font-size:13px;margin-top:6px;letter-spacing:.02em}
+.site-navigation {gap:25px;padding:7px 0 0}
+.nav-link {font-size:10px;letter-spacing:.13em;color:#fffced}
+.icon-button {background:#f6f2e921;border-color:#fffcf054}
+.toolbar-divider {display:none}
+.garden-caption {position:absolute;z-index:3;left:42px;bottom:70px;pointer-events:none;color:#fff8e7;text-shadow:0 2px 12px #26372d55}
+.garden-caption>span {font-size:9px;letter-spacing:.24em;opacity:.85}
+.garden-caption h1 {font:400 clamp(20px,2.4vw,34px)/1.5 Georgia,"Songti SC","SimSun",serif;letter-spacing:.12em;margin:10px 0 8px}
+.garden-caption p {font-size:11px;letter-spacing:.12em;opacity:.8;margin:0}
+.garden-note-button {position:absolute;z-index:9;right:40px;bottom:66px;border:1px solid #f4efdb80;background:#f5f0dfed;color:#435b49;border-radius:6px;padding:13px 16px;font-size:12px;box-shadow:0 6px 22px #20382515;display:flex;align-items:center;gap:10px}
+.garden-note-button>span {font-size:22px;color:#9a735e}.garden-note-button b {border-left:1px solid #bac6af;padding-left:10px;font-weight:400}
+.explore-help {font:10px/1.5 "DM Sans","Microsoft YaHei",sans-serif;letter-spacing:.15em;bottom:22px;opacity:.8}
+.panel {right:30px;top:120px;bottom:auto;max-height:calc(100% - 150px);width:420px;padding:27px;background:#f6f2e8f5;color:#35483a;border:1px solid #fffaf0;border-radius:10px;box-shadow:0 20px 70px #253e3a33;backdrop-filter:blur(18px);scrollbar-color:#c9c9b7 transparent}
+.panel-close {color:#63725c;top:14px;right:18px;position:sticky;float:right;z-index:2;min-width:28px;background:#f6f2e8e6;border-radius:50%}
+.panel .smallcaps {color:#8d795c;letter-spacing:.17em;font-size:9px}
+.panel h2 {font-size:34px;line-height:1.2;color:#334c3d;clear:both}
+.panel p {font:13px/1.85 "DM Sans","Microsoft YaHei",sans-serif;color:#72806b;margin-bottom:20px}
+.choice {border-color:#dcded0;color:#41533e;background:#fffdf640;border-radius:6px;min-height:79px}
+.choice:hover,.choice.selected {background:#e9eddc;border-color:#93a281}
+.choice strong {font-size:20px}.choice small {font-size:10px;color:#6c7863;opacity:1}
+.food-tab {background:transparent;border-color:#d0d5c2;color:#718068}.food-tab.active,.food-tab:hover {color:#39533e;background:#dfe6d1;border-color:#9dab8c}
+.food-fact {font-size:16px;color:#7e7158;background:#ebe6d8;border-color:#b7a275}
+.soft-button {color:#536447;background:#eeeddf;border-color:#c5cbb8;border-radius:5px;font-size:11px;padding:10px 14px}
+.soft-button:hover {background:#e1e7d2}.primary-action {background:#536f55;color:#fff7e5;border-color:#536f55}
+.panel .panel-tip {font-size:10px!important;color:#8a8e7d!important}
+.music-status {color:#77826a;font-size:10px}
+.see-table {margin-top:14px;width:100%}
+.journal-label,.journal-summary {color:#7f876e;font-size:9px;letter-spacing:.12em;margin:18px 0 10px}
+.journal-select,.journal-textarea {border-color:#d8dacb;background:#fffdf6;color:#455740;border-radius:5px;font-family:inherit;font-size:12px;line-height:1.8}
+.journal-select option {background:#fffdf6;color:#455740}.journal-textarea::placeholder {color:#a2a792}
+.journal-counter {color:#a1a38c}.panel .journal-privacy {color:#969985;font-size:10px;line-height:1.7}
+.journal-entry {border:0;border-radius:2px;background:#eae7d9;padding:14px;border-left:2px solid #b3bd99}
+.journal-entry small {color:#8b927b}.panel .journal-entry p {color:#526347;font:12px/1.8 inherit}
+.journal-remove {font-size:10px;color:#9a806e}
+.daily-note {background:#eae6d7;padding:19px 21px 16px;border-radius:2px;border-left:2px solid #acb18d;transform:rotate(-.7deg);margin:4px 0 24px}
+.daily-note small {font-size:8px;letter-spacing:.14em;color:#929780}
+.daily-note blockquote {margin:12px 0 14px;font:16px/1.9 Georgia,"SimSun",serif;color:#56644c}
+.note-credit {font-size:9px;color:#9b9e86;display:block;text-align:right}
+.seed-picker {display:flex;gap:9px;margin:14px 0}.seed-choice {flex:1;background:transparent;border:1px solid #d6dbc9;border-radius:5px;padding:11px 8px;color:#8a947b;font-size:12px}
+.seed-choice[aria-pressed=true] {border-color:#8eaa7d;color:#46623c;background:#e7eddc}
+.piano-section {border-top:1px solid #d6dacb;border-bottom:1px solid #d6dacb;margin:22px 0;padding:18px 0 14px}
+.piano-heading {display:flex;justify-content:space-between;font-size:8px;letter-spacing:.13em;color:#899378}
+.piano-section h3 {font:400 17px/1.5 Georgia,"SimSun",serif;color:#56674b;margin:12px 0 4px}
+.panel .piano-hint {font-size:10px;color:#9a9e89;margin:0 0 14px}
+.piano {height:133px;display:flex;position:relative;border:6px solid #465849;border-top-width:12px;border-bottom-width:8px;border-radius:5px;background:#465849;touch-action:none;user-select:none}
+.piano-key {border:0;padding:0;touch-action:none;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:6px;transition:background .07s}
+.white-key {width:12.5%;height:100%;border:1px solid #d1ccb9;background:linear-gradient(#f5f0e3,#fffbed 80%,#e6dfcc);color:#8c9682;border-radius:0 0 3px 3px;padding-bottom:10px;box-shadow:0 3px 0 #b7b6a3}
+.black-key {position:absolute;z-index:2;width:7.6%;height:62%;background:linear-gradient(90deg,#233b30,#4b5d4b 80%,#253c31);border:1px solid #253a2c;border-radius:0 0 3px 3px;box-shadow:0 4px 0 #20382a;color:#b9c3ad;padding-bottom:6px}
+.piano-key span {font-size:8px}.piano-key kbd {font:8px "DM Sans",sans-serif;opacity:.5}
+.white-key.pressed {background:#d4e1bf;transform:translateY(2px);box-shadow:none}.black-key.pressed {background:#8eaa76;transform:translateY(2px);box-shadow:none}
+.piano-readout {font-size:9px;color:#8b947e;text-align:center;margin:12px 0 0;letter-spacing:.06em}
+.table-label {display:none;position:absolute;left:34%;bottom:18%;z-index:8;padding:10px 16px;background:#f6f1e8e8;color:#5a694e;border:1px solid #fff9e9;border-radius:5px;font-size:12px}
+.view-food .table-label {display:block}.view-food .garden-caption {display:none}
+body.in-heart .garden-caption,body.in-heart .garden-note-button {display:none}
+body.night .panel {background:#28382ff5;border-color:#81907655;color:#e9e5d2}
+body.night .panel h2,body.night .panel h3 {color:#eee8d3}body.night .panel p {color:#b7c1a8}
+body.night .choice {color:#eee8d3;background:#ffffff08;border-color:#ffffff25}body.night .choice small {color:#aab69e}
+body.night .panel-close {background:#28382f;color:#e9e5d2}
+body.night .daily-note,body.night .journal-entry {background:#3b483a}body.night .daily-note blockquote,body.night .journal-entry p {color:#e0dfc9}
+@media(min-width:1100px){body:has(.panel.open) .garden-caption{opacity:.3}}
+@media(max-width:1050px){.masthead{gap:28px}.site-navigation{gap:18px}.topbar{left:25px;right:25px}.panel{width:380px;right:20px}.garden-caption{left:28px}.garden-note-button{right:25px}.wordmark{font-size:53px}.subtitle{font-size:11px}}
+@media(max-width:720px){.topbar{top:24px;left:22px;right:22px;align-items:start}.masthead{flex-direction:column;align-items:start;gap:18px;max-width:100%;width:100%}.wordmark{font-size:54px}.subtitle{font-size:12px}.toolbar{position:absolute;right:0;top:0}.site-navigation{width:calc(100vw - 44px);max-width:none;gap:19px}.nav-link{font-size:9px}.garden-caption{left:24px;bottom:112px}.garden-caption h1{font-size:21px}.garden-caption p{font-size:9px;letter-spacing:.04em}.garden-caption>span{font-size:8px}.garden-note-button{right:24px;bottom:53px;font-size:11px;padding:8px 12px}.panel{top:163px;bottom:20px;max-height:calc(100% - 183px);width:calc(100vw - 30px);right:15px;padding:22px}.panel h2{font-size:29px}.choice-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.choice{min-height:78px;padding:10px 8px;gap:5px}.choice strong{font-size:17px}.choice-emoji{font-size:21px;min-width:23px}.choice small{font-size:10px}.explore-help{bottom:17px;font-size:9px;letter-spacing:.07em}.table-label{left:18px;bottom:22px;font-size:10px;z-index:17}.view-food .panel{bottom:65px;max-height:calc(100% - 228px)}.daily-note{padding:16px}.piano{height:132px}}
+@media(prefers-reduced-motion:reduce){.daily-note{transform:none}}

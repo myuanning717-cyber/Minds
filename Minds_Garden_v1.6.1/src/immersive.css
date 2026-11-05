@@ -1,0 +1,44 @@
+/* Full-size rooms: tools open from furniture, never as a permanent sidebar. */
+.room-interactions,.room-caption,.room-footer{display:none}
+.immersive-room .room-interactions{display:block;position:absolute;inset:0;z-index:9;pointer-events:none}
+.room-object{position:absolute;transform:translate(-50%,-50%);pointer-events:auto;padding:9px 14px;min-height:44px;border:1px solid #ece0bbbd;border-radius:24px;background:#273f35dd;color:#fff6de;font:12px/1.2 'DM Sans',sans-serif;box-shadow:0 4px 18px #15271d25;backdrop-filter:blur(8px);white-space:nowrap}
+.room-object::before{content:'○';margin-right:7px;color:#f3d898}.room-object:hover,.room-object:focus-visible{background:#476b53;outline:2px solid #ffe7ac;outline-offset:4px}.room-object[hidden]{display:none}
+.immersive-room .room-caption{display:block;position:absolute;left:32px;top:135px;z-index:6;color:#f9f2df;text-shadow:0 2px 10px #1a312f;background:#263e355c;padding:14px 18px;border-left:1px solid #e3d8b7;pointer-events:none;max-width:350px}
+.room-caption small{font:10px/1.4 sans-serif;letter-spacing:.18em}.room-caption h1{font:26px/1.15 Georgia,serif;margin:8px 0}.room-caption button{pointer-events:auto;margin-top:8px}
+.immersive-room .room-footer{display:flex;position:absolute;bottom:max(18px,env(safe-area-inset-bottom));left:24px;right:24px;align-items:center;justify-content:center;gap:16px;z-index:10}
+.room-back{border:1px solid #bfceb5;background:#f8f2e3ed;color:#2c4937;border-radius:6px;padding:11px 14px;font:12px sans-serif;min-height:44px;cursor:pointer}.room-help{font:12px sans-serif;color:#fff9ea;background:#203c30d9;border-radius:4px;padding:12px}.room-back[hidden]{display:none}
+body.room-idle .panel.open{opacity:0;pointer-events:none;visibility:hidden;transform:translateY(25px)}
+body.immersive-room .panel{right:50%;transform:translateX(50%);top:auto;bottom:85px;width:min(760px,calc(100vw - 36px));max-height:calc(100dvh - 230px);padding:28px;background:#fcf7ebf5;border-radius:8px;box-shadow:0 25px 100px #0b201480;z-index:18}
+body.immersive-room .panel>button{color:#294635;background:#f8f1e1;right:12px;top:9px;z-index:2;min-width:42px;min-height:42px;border-radius:50%}
+body.immersive-room #panel-inner>h2,body.immersive-room #panel-inner>p,body.immersive-room #panel-inner>.smallcaps{display:none}
+body.immersive-room[data-tool=piano] #panel-inner>.choice-grid,body.immersive-room[data-tool=piano] .music-controls{display:none}
+body.immersive-room[data-tool=listen] .piano-section{display:none}
+body.immersive-room .journal>.daily-note{display:none}
+body.immersive-room .journal:before{content:'A thought worth planting.';display:block;font:30px/1.2 Georgia,serif;color:#304b39;margin:8px 0 20px}
+body.immersive-room .journal-textarea{min-height:180px;max-height:35dvh;width:100%;box-sizing:border-box}
+body.room-tool-open .room-interactions,body.room-tool-open .room-caption{visibility:hidden}
+body.room-tool-open .room-help{opacity:0}
+body.immersive-room .journal-list{max-height:200px;overflow:auto}
+body.just-planted .journal:before{animation:plant-glow 1.4s ease}@keyframes plant-glow{50%{color:#bb795e;transform:translateY(-5px)}}
+.story-dialog{box-sizing:border-box;width:min(570px,calc(100vw - 30px));max-height:85dvh;overflow:auto;padding:38px;border:1px solid #fff8e5a6;border-radius:16px;background:#f7f2e5e8;backdrop-filter:blur(22px);color:#283e33;box-shadow:0 25px 100px #11271b55}
+.story-dialog::backdrop{background:#19362942;backdrop-filter:blur(3px)}.story-close{position:absolute;right:12px;top:9px;border:0;background:transparent;color:#294735;font-size:30px;width:44px;height:44px;cursor:pointer}.story-kicker{font:10px sans-serif;letter-spacing:.16em;color:#576149}.story-dialog h2{font:34px/1.15 Georgia,serif;margin:16px 0 22px}.story-copy{font:19px/1.65 Georgia,serif;white-space:pre-wrap;overflow-wrap:anywhere}.recipe-note{border-top:1px solid #b5bda7;padding-top:10px}.recipe-note h3{font:12px sans-serif;text-transform:uppercase;letter-spacing:.15em}.recipe-note p{font:15px/1.65 sans-serif;color:#455440}.recipe-note button{margin-top:12px}
+.room-view .choice.selected{background:#dce5d5!important;border-color:#657e61!important}
+.topbar .masthead{gap:24px}.site-navigation{gap:16px}.immersive-room .vignette{background:linear-gradient(180deg,#182d3940,transparent 22%,transparent 75%,#0c241a70)}
+@media(max-width:900px){.topbar{left:20px;right:20px}.wordmark{font-size:45px}.subtitle{font-size:10px}.site-navigation{gap:11px}.nav-link{font-size:9px}.toolbar{gap:5px}.toolbar .icon-button{width:34px;height:34px}.masthead{max-width:calc(100% - 110px)}}
+@media(max-width:620px){
+ .topbar{top:max(14px,env(safe-area-inset-top));left:16px;right:16px;align-items:flex-start}.masthead{display:block;max-width:none;width:100%}.wordmark{font-size:43px}.subtitle{font-size:10px;margin-top:2px}.toolbar{position:absolute;right:0;top:4px}.site-navigation{display:flex;position:absolute;left:0;right:0;top:76px;overflow-x:auto;gap:18px;padding:12px 14px;white-space:nowrap;scrollbar-width:none}.nav-link{min-height:30px;flex:none;font-size:9px;letter-spacing:.06em}.nav-separator{display:none}
+ .garden-caption{left:20px;bottom:95px;max-width:85vw}.garden-caption h1{font-size:22px;letter-spacing:.01em;line-height:1.2}.garden-caption p{font-size:10px;letter-spacing:.03em}.explore-help{bottom:38px;font-size:9px;gap:6px}.help-dash{width:15px}
+ .immersive-room .room-caption{left:16px;top:145px;padding:10px 12px;max-width:260px}.room-caption h1{font-size:21px}.room-caption small{font-size:9px}
+ .immersive-room .room-footer{left:12px;right:12px;bottom:18px;flex-wrap:wrap;gap:6px}.room-help{order:5;flex-basis:100%;text-align:center;font-size:10px;padding:8px}.room-back{font-size:11px;padding:9px}.room-object{font-size:10px;padding:8px 10px;max-width:155px;white-space:normal;text-align:center}
+ body.immersive-room .panel{width:calc(100vw - 24px);bottom:84px;max-height:calc(100dvh - 225px);padding:20px;right:50%;top:auto;box-sizing:border-box}body.immersive-room .panel .piano-section{padding:13px 9px}.piano-scroll{max-width:100%;touch-action:pan-x}.piano-key{touch-action:none}.journal-actions{flex-wrap:wrap}.journal-actions button{min-height:42px;font-size:11px}
+ .story-dialog{padding:32px 23px}.story-dialog h2{font-size:28px}.story-copy{font-size:17px}.panel{box-sizing:border-box;top:155px;bottom:25px;right:12px;width:calc(100vw - 24px);max-height:calc(100dvh - 185px)}.panel h2{font-size:31px}.food-tabs{flex-wrap:wrap}.food-tab{min-height:38px}.choice-grid{grid-template-columns:1fr 1fr}.choice strong{font-size:19px}.choice small{font-size:11px}
+}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.001ms!important;transition-duration:.001ms!important}}
+
+#garden-cover{width:min(1000px,92vw);padding:0;overflow:hidden;border:1px solid #d8d0ae;border-radius:10px;background:#f6f0df;color:#304635;box-shadow:0 25px 90px #17281b80}#garden-cover::backdrop{background:#1c3029bd;backdrop-filter:blur(8px)}#garden-cover img{display:block;width:100%;height:auto}#garden-cover footer{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:16px 24px;font:italic 17px Georgia,serif}#enter-garden{border:0;border-radius:4px;background:#345947;color:#fff7df;padding:13px 19px;font:14px Georgia,serif;cursor:pointer}#enter-garden:focus-visible{outline:2px solid #ad905a;outline-offset:3px}.room-object{background:#f4eddbeb;color:#294534;border-color:#aeaa89;border-radius:4px;min-height:38px}.room-object::before{color:#946c3d}.room-object:hover,.room-object:focus-visible{color:#fff6dd}.room-caption h1{font-size:21px}@media(max-width:620px){#garden-cover footer{flex-direction:column;padding:20px}#garden-cover{width:94vw}.room-object{min-height:44px}}@media(max-height:560px){#garden-cover{width:min(75vw,670px);max-height:96dvh;overflow:auto}}
+
+.desk-bloom{display:flex;align-items:center;gap:12px;padding:9px 15px;background:#e6ebdc;border:1px solid #bcc9ae;color:#344d3d;font:15px Georgia,serif;margin-bottom:12px}.desk-bloom[hidden]{display:none}.sprouting-flower{position:relative;display:inline-block;color:#bb705e;font:37px Georgia,serif;transform-origin:50% 100%;animation:sprout .8s both}@keyframes sprout{0%{transform:scale(.05) rotate(-28deg)}75%{transform:scale(1.1) rotate(5deg)}100%{transform:scale(1)}}
+/* Model hits handle mouse and touch. Keyboard users can reveal each label with Tab. */
+body:is([data-room="sound"],[data-room="greenhouse"]) .room-object{opacity:0;pointer-events:none;transition:opacity .14s;background:#244638e8;color:#fff9e7;border:0;border-radius:5px;min-height:0;padding:6px 10px;font-size:11px;box-shadow:0 2px 8px #18352d29;transform:translate(-50%,calc(-100% - 8px))}
+body:is([data-room="sound"],[data-room="greenhouse"]) .room-object::before{display:none}
+body:is([data-room="sound"],[data-room="greenhouse"]) .room-object:is(.object-hover,:focus-visible){opacity:1}

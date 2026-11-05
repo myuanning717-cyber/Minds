@@ -1,0 +1,22 @@
+import fs from 'node:fs';
+import path from 'node:path';
+import vm from 'node:vm';
+const root=process.cwd();
+const dist=path.join(root,'dist');
+let html=fs.readFileSync(path.join(dist,'index.html'),'utf8');
+const jsFile=fs.readdirSync(path.join(dist,'assets')).find(n=>n.endsWith('.js'));
+const cssFile=fs.readdirSync(path.join(dist,'assets')).find(n=>n.endsWith('.css'));
+let js=fs.readFileSync(path.join(dist,'assets',jsFile),'utf8');
+const css=fs.readFileSync(path.join(dist,'assets',cssFile),'utf8');
+html=html.replace(/<link[^>]+(?:fonts\.googleapis|fonts\.gstatic)[^>]*>/g,'');
+html=html.replace(/<link rel="stylesheet"[^>]+>/g,'');
+html=html.replace(/<script type="module"[^>]*src="[^"]+"[^>]*><\/script>/,'');
+html=html.replace(/if\(location\.protocol==='file:'\)\{[\s\S]*?if\(guide\)guide.hidden=false;\s*\}/,'');
+// A replacer function preserves literal $& sequences inside the bundled engine.
+html=html.replace('</head>',()=>`<style>${css.replace(/<\/style/gi,'<\\/style')}</style></head>`);
+html=html.replace('</body>',()=>`<script>${js.replace(/<\/script/gi,'<\\/script')}</script></body>`);
+for(const [,code] of html.matchAll(/<script(?:\s[^>]*)?>([\s\S]*?)<\/script>/g))new vm.Script(code);
+const output=path.join(root,'Minds_Garden_v1.6.1_Open.html');
+html=html.replace(/(href="|content="|src=")\.?\/?brand\//g,'$1./public/brand/').replace(/href="\.?\/?manifest.webmanifest"/g,'href="./public/manifest.webmanifest"');
+fs.writeFileSync(output,html);
+console.log('Standalone saved:',output,fs.statSync(output).size,'bytes');
